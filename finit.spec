@@ -1,5 +1,5 @@
 %define snapshot 0
-%define __release 2
+%define __release 3
 %if %{snapshot}
 %define snapshot_date 20080917
 %define _release 0.%{snapshot_date}.%{__release}
@@ -20,11 +20,20 @@ Source1: 	finit.conf
 Source2: 	services.sh
 BuildRequires:	glibc-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}
+Suggests:	finit-config
 
 %description
 Finit is an init(8) replacement aimed to enhance boot time, especially for
 small and/or slow machines. It is a reimplementation of the Eeepc "fastinit"
 program based on its system calls with "gaps filled with frog DNA".
+
+%package config-default
+Summary:	Default configuration for finit
+Group:		System/Base
+Provides:	finit-config
+
+%description config-default
+This package contains the default configuration for finit.
 
 %prep
 %setup -q -n finit-%{version}%{?snapshot_date:-pre}
@@ -41,6 +50,8 @@ cp %{_sourcedir}/services.sh %{buildroot}%{_sbindir}
 
 %files
 %defattr(0755,root,root,0755)
-%attr(0644,root,root) %{_sysconfdir}/finit.conf
 /sbin/finit-mdv
+
+%files config-default
+%attr(0644,root,root) %{_sysconfdir}/finit.conf
 %{_sbindir}/services.sh
