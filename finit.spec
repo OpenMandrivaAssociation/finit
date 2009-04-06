@@ -1,5 +1,5 @@
 %define snapshot 0
-%define __release 5
+%define __release 6
 %if %{snapshot}
 %define snapshot_date 20090406
 %define _release 0.%{snapshot_date}.%{__release}
