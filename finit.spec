@@ -1,7 +1,7 @@
 %define snapshot 0
-%define __release 6
+%define __release 7
 %if %{snapshot}
-%define snapshot_date 20090406
+%define snapshot_date 20090414
 %define _release 0.%{snapshot_date}.%{__release}
 %else
 %define _release %{__release}
@@ -18,7 +18,6 @@ URL:		http://helllabs.org/git/eeepc.git
 Source0: 	finit-%{version}%{?snapshot_date:-pre}%{?snapshot_date}.tar.bz2
 Source1: 	finit.conf
 Source2: 	services.sh
-Patch0: 	finit-0.6-march-fix.patch
 BuildRequires:	glibc-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 Suggests:	finit-config
@@ -38,7 +37,6 @@ This package contains the default configuration for finit.
 
 %prep
 %setup -q -n finit-%{version}%{?snapshot_date:-pre}
-%patch0 -p1
 
 %build
 %make
