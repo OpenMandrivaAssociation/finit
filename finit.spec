@@ -55,3 +55,29 @@ cp %{_sourcedir}/services.sh %{buildroot}%{_sbindir}
 %files config-default
 %attr(0644,root,root) %{_sysconfdir}/finit.conf
 %{_sbindir}/services.sh
+
+
+%changelog
+* Tue Apr 14 2009 Caio Begotti <caio1982@mandriva.org> 0.6-7mdv2010.0
++ Revision: 367163
+- no need to keep those as they have been merged upstream and a new version will be released soon
+
+* Mon Apr 06 2009 Caio Begotti <caio1982@mandriva.org> 0.6-6mdv2009.1
++ Revision: 364478
+- bumping
+- fix the makefile to build it clean on deborah
+- updating finit's tarball and version after claudio merged new patches upstream
+
+* Thu Oct 02 2008 Olivier Blin <oblin@mandriva.com> 0.6-4mdv2009.0
++ Revision: 290924
+- add startx command support (from git)
+
+* Wed Oct 01 2008 Olivier Blin <oblin@mandriva.com> 0.6-3mdv2009.0
++ Revision: 290467
+- split out config in a finit-config-default package
+
+* Tue Sep 30 2008 Olivier Blin <oblin@mandriva.com> 0.6-2mdv2009.0
++ Revision: 289920
+- initial finit package (from gdium project)
+- create finit
+
